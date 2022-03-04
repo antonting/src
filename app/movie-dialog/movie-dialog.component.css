@@ -1,0 +1,46 @@
+#mainDialog {
+  background-color: #fff8cc;
+  padding: 3em;
+  border-radius: 0.5em;
+  background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
+
+  display: flex;
+  align-items: center;
+}
+
+#info {
+  padding: 2em;
+}
+
+#btnDiv {
+  text-align: center;
+}
+
+h1 {
+  font-family: "Courier New", monospace;
+  font-weight: 800;
+}
+
+img {
+  align-items: center;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  color: black;
+}
+
+td {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+p {
+  padding-top: 1em;
+}
+
+button {
+  justify-content: center;
+}
