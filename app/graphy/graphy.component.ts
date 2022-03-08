@@ -1,4 +1,6 @@
 import { Component, OnInit, Input , DoCheck} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MovieDialogComponent } from '../movie-dialog/movie-dialog.component';
 import { DATA } from '../mock-data';
 
 
@@ -15,6 +17,7 @@ export class GraphyComponent implements OnInit,  DoCheck {
 
   minYValue :number = 0;
   maxYValue :number = 0;
+  @Input() matDialog?: MatDialog;
   @Input() ratingType :string = "Internet Movie Database";
 
 
@@ -27,7 +30,13 @@ export class GraphyComponent implements OnInit,  DoCheck {
   };
 
   logElement(ele: any) {
-    console.log(ele);
+    if(this.matDialog) {
+      this.matDialog.open(MovieDialogComponent,
+        {
+          data: ele
+        }
+      );
+    }
   }
 
   setNewYValue(v1: any) {

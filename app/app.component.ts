@@ -10,7 +10,7 @@ import { MovieDialogComponent } from './movie-dialog/movie-dialog.component';
 export class AppComponent {
   title = 'Test för proj';
 
-  constructor(private matDialog: MatDialog){
+  constructor(public matDialog: MatDialog){
 
   }
 
