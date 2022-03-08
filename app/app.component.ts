@@ -8,7 +8,7 @@ import { MovieDialogComponent } from './movie-dialog/movie-dialog.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-angular-project';
+  title = 'Test för proj';
 
   constructor(private matDialog: MatDialog){
 
@@ -21,6 +21,5 @@ export class AppComponent {
       }
     );
   }
+
 }
-
-

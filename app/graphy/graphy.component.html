@@ -1,0 +1,24 @@
+<div>
+  <p>Min Y value: {{minYValue}}</p>
+  <p>Max Y value: {{maxYValue}}</p>
+<div id="drawArea" style="background: lightgray;">
+  <div *ngFor="let ele of data; let i = index" class="graphElement"
+  [ngStyle]="{'bottom.px':convertToPixels(selectCorrectYValue(ele['Ratings']),this.minYValue, this.maxYValue),
+   'left.px':convertToPixels(+(ele['Year']), this.minXValue, this.maxXValue),
+    'z-index': i}">
+    <p (click)="logElement(ele)">{{ele['Title']}}<br>
+    ({{ele['Year']}}, {{getCorrectRating(ele['Ratings'])}})</p>
+  </div>
+</div>
+<p>Min X value: {{minXValue}}</p>
+<p>Max X value: {{maxXValue}}</p>
+</div>
+
+<div id="ratingCheckers">
+  <h3>Select y value:</h3>
+<select (change)="setNewYValue($event)">
+  <option selected value="Internet Movie Database">imdb rating</option>
+  <option value="Metacritic">Metacritic</option>
+  <option value="Rotten Tomatoes">Rotten Tomatoes</option>
+</select>
+</div>
