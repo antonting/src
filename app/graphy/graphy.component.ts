@@ -1,7 +1,7 @@
 import { Component, OnInit, Input , DoCheck} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieDialogComponent } from '../movie-dialog/movie-dialog.component';
-import { DATA } from '../mock-data';
+
 
 
 @Component({
@@ -11,7 +11,7 @@ import { DATA } from '../mock-data';
 })
 export class GraphyComponent implements OnInit,  DoCheck {
 
-  data = DATA; // Should change to input
+  @Input() data?: any; // Should change to input
   minXValue :number = 0;
   maxXValue :number = 0;
 
@@ -59,12 +59,12 @@ export class GraphyComponent implements OnInit,  DoCheck {
     } else if (this.ratingType === 'Metacritic') {
       value = value.substr(0, value.indexOf('/'));
       var converted = +value;
-      converted = converted / 10;
+      //converted = converted / 10;
       return converted;
     } else if(this.ratingType === 'Rotten Tomatoes') {
       value = value.substr(0, value.length-1);
       var converted = +value;
-      converted = converted / 10;
+      //converted = converted / 10;
       return converted;
     }
     return -1;
