@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieListService } from '../movieListService';
-
+import { IMovie } from '../movie';
 
 @Component({
   selector: 'app-movie-list',
@@ -10,7 +10,7 @@ import { MovieListService } from '../movieListService';
 
 })
 export class MovieListComponent implements OnInit{
-  list: any[];
+  list: IMovie[];
 
   constructor(private _movieList: MovieListService){
      this.list = this._movieList.getList();
@@ -20,12 +20,11 @@ export class MovieListComponent implements OnInit{
         
   }
 
- // typesOfShoes = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
 
 
     public onClick(index: number){
         this.list.splice(index,1);
-        console.log(this._movieList.getList());
+        console.log(this._movieList);
     }
   
 }

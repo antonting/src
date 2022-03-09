@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import {item } from '../item';
 import {MovieListService} from '../movieListService';
 import { NgForm } from '@angular/forms';
 import {HttpClient, HttpRequest} from '@angular/common/http';
