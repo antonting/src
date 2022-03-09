@@ -1,0 +1,9 @@
+
+<mat-nav-list>
+  <mat-list-item *ngFor="let movie of list; let i = index" >
+     <a matLine href="...">{{ movie.Title}}</a>
+     <button mat-icon-button (click)="onClick(i)">
+       Remove Movie
+     </button>
+  </mat-list-item>
+</mat-nav-list>
