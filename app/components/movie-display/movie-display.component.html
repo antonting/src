@@ -1,0 +1,18 @@
+<mat-nav-list>
+    <mat-list-item *ngFor="let movie of movies; let i = index">
+        <img
+            *ngIf="movie.Poster"
+            src="{{movie.poster}}"
+            alt="{{movie.Title}}"
+            class="poster"
+            />
+        <p *ngIf="!movie.Poster">No Poster!</p>
+        <a class="title" matLine href= "...">{{movie.title}}</a>
+        <button class="buttons" mat-icon-button (click)="viewDetails(i)">
+            View Details
+        </button>
+        <button class="buttons" mat-icon-button (click)="removeMovie(i)">
+            Remove Movie
+        </button>
+    </mat-list-item>
+</mat-nav-list>
