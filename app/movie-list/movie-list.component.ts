@@ -33,7 +33,7 @@ export class MovieListComponent implements OnInit{
   }
 
 
-    public onClick(index: number){
+    public removeMovie(index: number){
         this.list.splice(index,1);
         console.log(this.list);
     }
