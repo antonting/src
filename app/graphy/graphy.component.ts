@@ -15,7 +15,6 @@ export class GraphyComponent implements OnInit,  DoCheck {
 
   list: IMovie[];
 
-  @Input() data?: any; // Should change to input
   minXValue :number = 0;
   maxXValue :number = 0;
 
@@ -34,7 +33,6 @@ export class GraphyComponent implements OnInit,  DoCheck {
   };
 
   logElement(ele: any) {
-    console.log(this.list);
     if(this.matDialog) {
       this.matDialog.open(MovieDialogComponent,
         {
@@ -66,12 +64,10 @@ export class GraphyComponent implements OnInit,  DoCheck {
     } else if (this.ratingType === 'Metacritic') {
       value = value.substr(0, value.indexOf('/'));
       var converted = +value;
-      //converted = converted / 10;
       return converted;
     } else if(this.ratingType === 'Rotten Tomatoes') {
       value = value.substr(0, value.length-1);
       var converted = +value;
-      //converted = converted / 10;
       return converted;
     }
     return -1;
@@ -106,14 +102,12 @@ export class GraphyComponent implements OnInit,  DoCheck {
       ratings.map((source: { [x: string]: string; }) => {
         if(source['Source'] === this.ratingType) {
           var value = this.convertToInt(source['Value']);
-          console.log(value);
           if(this.minYValue === 0 || this.minYValue > value) {
             this.minYValue = value;
           }
           if(this.maxYValue === 0 || this.maxYValue < value) {
             this.maxYValue = value;
           }
-          //this.yMAP[ele['Title']] = [value, source['Value']];
         }
       });
     });
