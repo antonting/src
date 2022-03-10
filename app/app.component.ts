@@ -10,7 +10,7 @@ import { DATA } from './mock-data';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Test för proj';
+  title = 'Proj sida.';
   data = DATA;
 
   constructor(public matDialog: MatDialog){
