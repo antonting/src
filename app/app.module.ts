@@ -13,6 +13,8 @@ import { MovieListService } from './movieListService';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     MatListModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [MovieListService],
   bootstrap: [AppComponent]
