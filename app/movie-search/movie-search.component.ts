@@ -14,26 +14,24 @@ import { IMovie } from '../movie';
   styleUrls: ['./movie-search.component.css']
 })
 
-export class MovieSearchComponent {   
-  
-  
+export class MovieSearchComponent {
+
+
   constructor(private _movieList: MovieListService, private http: HttpMovieService){
 
   }
 
-  
+
   onSubmit(form: NgForm){
-  
+
     let movie: IMovie;
     this.http.getMovie('e5242bd7', (form.value.title).toString()).subscribe(data => {
       movie = data;
       this._movieList.addToList(movie);
     })
-          
+
   }
 
 
-  
+
 }
-
-

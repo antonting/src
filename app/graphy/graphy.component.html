@@ -9,29 +9,30 @@
   </div>
 </div>
 </div>
-
+<div>
 <div id="ratingCheckers">
-  <h3>Select y value:</h3>
-<select (change)="setNewYValue($event)">
-  <option selected value="Internet Movie Database">imdb rating</option>
-  <option value="Metacritic">Metacritic</option>
-  <option value="Rotten Tomatoes">Rotten Tomatoes</option>
-</select>
+    <h3>Select y value:</h3>
+  <select (change)="setNewYValue($event)">
+    <option selected value="Internet Movie Database">imdb rating</option>
+    <option value="Metacritic">Metacritic</option>
+    <option value="Rotten Tomatoes">Rotten Tomatoes</option>
+  </select>
+  </div>
+  <table>
+    <tr>
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+    </tr>
+    <tr>
+      <td>Min</td>
+      <td><p>{{minXValue}}</p></td>
+      <td><p>{{minYValue}}</p></td>
+    </tr>
+    <tr>
+      <td>Max</td>
+      <td><p>{{maxXValue}}</p></td>
+      <td><p>{{maxYValue}}</p></td>
+    </tr>
+  </table>
 </div>
-<table>
-  <tr>
-    <th></th>
-    <th>X</th>
-    <th>Y</th>
-  </tr>
-  <tr>
-    <td>Min</td>
-    <td><p>{{minXValue}}</p></td>
-    <td><p>{{minYValue}}</p></td>
-  </tr>
-  <tr>
-    <td>Max</td>
-    <td><p>{{maxXValue}}</p></td>
-    <td><p>{{maxYValue}}</p></td>
-  </tr>
-</table>
