@@ -1,3 +1,4 @@
+import { HttpMovieService } from './../../service/http-movie.service';
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
@@ -16,27 +17,21 @@ import { IMovie } from '../movie';
 export class MovieSearchComponent {   
   
   
-  constructor(private _movieList: MovieListService, private http: HttpClient){
+  constructor(private _movieList: MovieListService, private http: HttpMovieService){
 
   }
 
   
-  data(f:NgForm){
-     let movie: IMovie;
-     this.http.get<IMovie>(this.getUrl(f.value.title)).subscribe(data => {
-       movie = data;
-       this._movieList.addToList(movie);
-     })
-     console.log(this._movieList);
+  onSubmit(form: NgForm){
+  
+    let movie: IMovie;
+    this.http.getMovie('e5242bd7', (form.value.title).toString()).subscribe(data => {
+      movie = data;
+      this._movieList.addToList(movie);
+    })
           
   }
 
-  public getUrl(title: string){
-    let startString = new String("http://www.omdbapi.com/?t=");
-    let endString = new String("&apikey=e0581845");
-    let url = startString.concat(title.toString()).concat(endString.toString());
-    return url;
-  }
 
   
 }
