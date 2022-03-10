@@ -1,17 +1,13 @@
 <div>
-  <p>Min Y value: {{minYValue}}</p>
-  <p>Max Y value: {{maxYValue}}</p>
 <div id="drawArea" style="background: lightgray;">
   <div *ngFor="let ele of list; let i = index" class="graphElement"
   [ngStyle]="{'bottom.px':convertToPixels(selectCorrectYValue(ele.Ratings),this.minYValue, this.maxYValue),
    'left.px':convertToPixels(+(ele.Year), this.minXValue, this.maxXValue),
     'z-index': i}">
     <p (click)="logElement(ele)">{{ele.Title}}<br>
-    ({{ele.Title}}, {{getCorrectRating(ele.Ratings)}})</p>
+    ({{ele.Year}}, {{getCorrectRating(ele.Ratings)}})</p>
   </div>
 </div>
-<p>Min X value: {{minXValue}}</p>
-<p>Max X value: {{maxXValue}}</p>
 </div>
 
 <div id="ratingCheckers">
@@ -22,3 +18,20 @@
   <option value="Rotten Tomatoes">Rotten Tomatoes</option>
 </select>
 </div>
+<table>
+  <tr>
+    <th></th>
+    <th>X</th>
+    <th>Y</th>
+  </tr>
+  <tr>
+    <td>Min</td>
+    <td><p>{{minXValue}}</p></td>
+    <td><p>{{minYValue}}</p></td>
+  </tr>
+  <tr>
+    <td>Max</td>
+    <td><p>{{maxXValue}}</p></td>
+    <td><p>{{maxYValue}}</p></td>
+  </tr>
+</table>
