@@ -2,12 +2,12 @@
   <p>Min Y value: {{minYValue}}</p>
   <p>Max Y value: {{maxYValue}}</p>
 <div id="drawArea" style="background: lightgray;">
-  <div *ngFor="let ele of data; let i = index" class="graphElement"
-  [ngStyle]="{'bottom.px':convertToPixels(selectCorrectYValue(ele['Ratings']),this.minYValue, this.maxYValue),
-   'left.px':convertToPixels(+(ele['Year']), this.minXValue, this.maxXValue),
+  <div *ngFor="let ele of list; let i = index" class="graphElement"
+  [ngStyle]="{'bottom.px':convertToPixels(selectCorrectYValue(ele.Ratings),this.minYValue, this.maxYValue),
+   'left.px':convertToPixels(+(ele.Year), this.minXValue, this.maxXValue),
     'z-index': i}">
-    <p (click)="logElement(ele)">{{ele['Title']}}<br>
-    ({{ele['Year']}}, {{getCorrectRating(ele['Ratings'])}})</p>
+    <p (click)="logElement(ele)">{{ele.Title}}<br>
+    ({{ele.Title}}, {{getCorrectRating(ele.Ratings)}})</p>
   </div>
 </div>
 <p>Min X value: {{minXValue}}</p>

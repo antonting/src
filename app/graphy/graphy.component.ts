@@ -1,6 +1,8 @@
 import { Component, OnInit, Input , DoCheck} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieDialogComponent } from '../movie-dialog/movie-dialog.component';
+import { MovieListService } from '../movieListService';
+import { IMovie } from '../movie';
 
 
 
@@ -10,6 +12,8 @@ import { MovieDialogComponent } from '../movie-dialog/movie-dialog.component';
   styleUrls: ['./graphy.component.css']
 })
 export class GraphyComponent implements OnInit,  DoCheck {
+
+  list: IMovie[];
 
   @Input() data?: any; // Should change to input
   minXValue :number = 0;
@@ -30,6 +34,7 @@ export class GraphyComponent implements OnInit,  DoCheck {
   };
 
   logElement(ele: any) {
+    console.log(this.list);
     if(this.matDialog) {
       this.matDialog.open(MovieDialogComponent,
         {
@@ -49,7 +54,9 @@ export class GraphyComponent implements OnInit,  DoCheck {
     this.calculateYValues();
   }
 
-  constructor() { }
+  constructor(private _movieList: MovieListService){
+     this.list = this._movieList.getList();
+  }
 
   convertToInt(value: string) {
     if(this.ratingType === 'Internet Movie Database') {
@@ -94,11 +101,12 @@ export class GraphyComponent implements OnInit,  DoCheck {
     this.minYValue = 0;
     this.maxYValue = 0;
     //Calculate Y values
-    this.data.map( (ele: any) => {
+    this.list.map( (ele: any) => {
       var ratings = ele['Ratings'];
       ratings.map((source: { [x: string]: string; }) => {
         if(source['Source'] === this.ratingType) {
           var value = this.convertToInt(source['Value']);
+          console.log(value);
           if(this.minYValue === 0 || this.minYValue > value) {
             this.minYValue = value;
           }
@@ -112,7 +120,7 @@ export class GraphyComponent implements OnInit,  DoCheck {
   }
 
   calculateXValues(): void {
-    this.data.map((ele: { Year: string | number; }) =>{
+    this.list.map((ele: { Year: string | number; }) =>{
       if(this.minXValue === 0 || this.minXValue > +ele.Year) {
         this.minXValue = +ele.Year;
       }
