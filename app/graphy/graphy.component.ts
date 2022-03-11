@@ -22,6 +22,7 @@ export class GraphyComponent implements OnInit,  DoCheck {
   maxYValue :number = 0;
   @Input() matDialog?: MatDialog;
   @Input() ratingType :string = "Internet Movie Database";
+  ratingTypes: any = ["Internet Movie Database", "Metacritic", "Rotten Tomatoes"];
 
 
   convertToPixels = (value: number, minValue: number, maxValue: number) => {
