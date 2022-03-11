@@ -2,8 +2,14 @@
   width: 700px;
   height: 650px;
   position: relative;
-  background-color: white;
   border: solid 1px black;
+  background-size: 50px 50px;
+  background-image: linear-gradient(
+      to right,
+      rgb(161, 161, 161) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(161, 161, 161) 1px, transparent 1px);
 }
 
 .graphElement {

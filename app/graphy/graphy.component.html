@@ -1,5 +1,5 @@
 <div>
-<div id="drawArea" style="background: lightgray;">
+<div id="drawArea" >
   <div *ngFor="let ele of list; let i = index" class="graphElement"
   [ngStyle]="{'bottom.px':convertToPixels(selectCorrectYValue(ele.Ratings),this.minYValue, this.maxYValue),
    'left.px':convertToPixels(+(ele.Year), this.minXValue, this.maxXValue),
