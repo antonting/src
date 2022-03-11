@@ -1,4 +1,4 @@
-.example-form {
+/* .example-form {
   min-width: 150px;
   max-width: 500px;
   width: 50%;
@@ -6,4 +6,57 @@
 
 .example-full-width {
   width: 50%;
+} */
+
+.container {
+  width: 100%;
+  height: 10%;
+  background-color: #323a45;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
 }
+
+#myForm {
+  width: 100%;
+  max-width: 1200px;
+  min-width: 800px;
+  margin: 0 auto;
+}
+
+
+
+#addTitle {
+  margin-left: 10px;
+  padding: 10px;
+  width: 400px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+/* #button {
+  border: none;
+  outline: none;
+  background: #3f51b5;
+  padding: 10px;
+  border-left: 10px solid rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  transition-duration: 0.3s;
+  cursor: pointer;
+
+}
+
+#button:hover {
+  color: #3f51b5;
+  background-color: #fff;
+  border: 1px solid #3f51b5;
+} */
