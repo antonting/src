@@ -1,6 +1,8 @@
 import { Component, OnInit, Input , DoCheck} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieDialogComponent } from '../movie-dialog/movie-dialog.component';
+import { MovieListService } from '../movieListService';
+import { IMovie } from '../movie';
 
 
 
@@ -11,7 +13,8 @@ import { MovieDialogComponent } from '../movie-dialog/movie-dialog.component';
 })
 export class GraphyComponent implements OnInit,  DoCheck {
 
-  @Input() data?: any; // Should change to input
+  list: IMovie[];
+
   minXValue :number = 0;
   maxXValue :number = 0;
 
@@ -49,7 +52,9 @@ export class GraphyComponent implements OnInit,  DoCheck {
     this.calculateYValues();
   }
 
-  constructor() { }
+  constructor(private _movieList: MovieListService){
+     this.list = this._movieList.getList();
+  }
 
   convertToInt(value: string) {
     if(this.ratingType === 'Internet Movie Database') {
@@ -59,12 +64,10 @@ export class GraphyComponent implements OnInit,  DoCheck {
     } else if (this.ratingType === 'Metacritic') {
       value = value.substr(0, value.indexOf('/'));
       var converted = +value;
-      //converted = converted / 10;
       return converted;
     } else if(this.ratingType === 'Rotten Tomatoes') {
       value = value.substr(0, value.length-1);
       var converted = +value;
-      //converted = converted / 10;
       return converted;
     }
     return -1;
@@ -94,7 +97,7 @@ export class GraphyComponent implements OnInit,  DoCheck {
     this.minYValue = 0;
     this.maxYValue = 0;
     //Calculate Y values
-    this.data.map( (ele: any) => {
+    this.list.map( (ele: any) => {
       var ratings = ele['Ratings'];
       ratings.map((source: { [x: string]: string; }) => {
         if(source['Source'] === this.ratingType) {
@@ -105,14 +108,13 @@ export class GraphyComponent implements OnInit,  DoCheck {
           if(this.maxYValue === 0 || this.maxYValue < value) {
             this.maxYValue = value;
           }
-          //this.yMAP[ele['Title']] = [value, source['Value']];
         }
       });
     });
   }
 
   calculateXValues(): void {
-    this.data.map((ele: { Year: string | number; }) =>{
+    this.list.map((ele: { Year: string | number; }) =>{
       if(this.minXValue === 0 || this.minXValue > +ele.Year) {
         this.minXValue = +ele.Year;
       }
