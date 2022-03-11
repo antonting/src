@@ -3,9 +3,9 @@
   <mat-nav-list>
     <mat-list-item *ngFor="let movie of list; let i = index" >
        <a class="matLine" (click)="showDialog(i)">{{ movie.Title}}</a>
-       <button mat-icon-button class="mat-icon-button" (click)="removeMovie(i)">
-         Remove Movie
-       </button>
+       <button mat-icon-button aria-label="Example icon" (click)="removeMovie(i)">
+        <mat-icon>clear</mat-icon>
+      </button>
     </mat-list-item>
   </mat-nav-list>
 </div>

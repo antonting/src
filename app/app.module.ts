@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule} from '@angular/material/button';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatButtonModule} from '@angular/material/button';
     HttpClientModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [MovieListService],
   bootstrap: [AppComponent]
