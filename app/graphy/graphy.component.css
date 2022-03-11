@@ -1,0 +1,17 @@
+#drawArea {
+  width: 700px;
+  height: 650px;
+  position: relative;
+  margin-left: 20em;
+  background-color: white;
+  border: solid 1px black;
+}
+
+.graphElement {
+  position: absolute;
+}
+
+.graphElement:hover {
+  border: solid 1px black;
+  cursor: pointer;
+}
