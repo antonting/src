@@ -11,12 +11,14 @@
 </div>
 <div style="padding-top: 2em;">
   <div style="float: left;padding-left: 10em;" id="ratingCheckers">
-    <label>Select y value:</label>
-    <select (change)="setNewYValue($event)">
-      <option value="Internet Movie Database">imdb</option>
-      <option value="Metacritic">Metacritic</option>
-      <option value="Rotten Tomatoes">Rotten Tomatoes</option>
-    </select>
+    <mat-form-field appearance="fill">
+      <mat-label>Rating source (Y value)</mat-label>
+      <mat-select [(value)]="ratingType">
+        <mat-option [value] = "ratingTypes[0]">Imdb</mat-option>
+        <mat-option [value] = "ratingTypes[1]">Metacritic</mat-option>
+        <mat-option [value] = "ratingTypes[2]">Rotten Tomatoes</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 
   <div style="float: right;padding-right: 10em;">
