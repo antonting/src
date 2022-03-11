@@ -94,6 +94,15 @@ export class GraphyComponent implements OnInit,  DoCheck {
     return value;
   }
 
+  convertXValue(str:String) {
+    let yearStr = str;
+    if(yearStr.length > 4) {
+      yearStr = yearStr.substr(0, 4);
+    }
+    let year = +yearStr;
+    return year;
+  }
+
   calculateYValues(): void {
     this.minYValue = 0;
     this.maxYValue = 0;
@@ -115,12 +124,13 @@ export class GraphyComponent implements OnInit,  DoCheck {
   }
 
   calculateXValues(): void {
-    this.list.map((ele: { Year: string | number; }) =>{
-      if(this.minXValue === 0 || this.minXValue > +ele.Year) {
-        this.minXValue = +ele.Year;
+    this.list.map((ele: { Year: string; }) =>{
+      let year = this.convertXValue(ele.Year);
+      if(this.minXValue === 0 || this.minXValue > year) {
+        this.minXValue = year;
       }
-      if(this.maxXValue === 0 || this.maxXValue < +ele.Year) {
-        this.maxXValue = +ele.Year;
+      if(this.maxXValue === 0 || this.maxXValue < year) {
+        this.maxXValue = year;
       }
     });
   }
